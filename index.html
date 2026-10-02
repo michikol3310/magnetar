@@ -151,6 +151,7 @@ button {
     border-radius: 8px;
     display: none;
     font-size: 14px;
+    line-height: 1.5;
 }
 
 .error {
@@ -542,10 +543,6 @@ button {
 
 <body>
 
-<!-- =========================
-     AUTH
-========================= -->
-
 <div id="authScreen">
 
 <div class="auth-container">
@@ -559,8 +556,6 @@ button {
 <p id="authTagline">Find your creative orbit.</p>
 
 </div>
-
-<!-- LOGIN -->
 
 <div class="auth-card" id="loginCard">
 
@@ -592,7 +587,10 @@ placeholder="Your password">
 
 </div>
 
-<button class="primary-btn" onclick="login()" id="loginButton">
+<button
+class="primary-btn"
+onclick="login()"
+id="loginButton">
 Log in
 </button>
 
@@ -600,7 +598,9 @@ Log in
 
 <div class="auth-switch">
 
-<span id="noAccount">Don't have an account?</span>
+<span id="noAccount">
+Don't have an account?
+</span>
 
 <button onclick="showSignup()" id="signupLink">
 Sign up
@@ -609,8 +609,6 @@ Sign up
 </div>
 
 </div>
-
-<!-- SIGNUP -->
 
 <div class="auth-card" id="signupCard" style="display:none;">
 
@@ -622,12 +620,15 @@ Create your creative identity.
 
 <div class="input-group">
 
-<label id="usernameLabel">Username</label>
+<label id="usernameLabel">
+Username
+</label>
 
 <input
 type="text"
 id="signupUsername"
-placeholder="yourname">
+placeholder="yourname"
+maxlength="30">
 
 </div>
 
@@ -653,7 +654,10 @@ placeholder="At least 6 characters">
 
 </div>
 
-<button class="primary-btn" onclick="signUp()" id="signupButton">
+<button
+class="primary-btn"
+onclick="signUp()"
+id="signupButton">
 Create account
 </button>
 
@@ -694,9 +698,6 @@ style="background:#111120;color:white;border:1px solid #333;padding:8px;border-r
 
 </div>
 
-<!-- =========================
-     APP
-========================= -->
 
 <div id="app">
 
@@ -734,7 +735,9 @@ style="background:#111120;color:white;border:1px solid #333;padding:8px;border-r
 
 <div class="sidebar-bottom">
 
-<button class="nav-item" onclick="openSettings()">
+<button
+class="nav-item"
+onclick="openSettings()">
 ⚙️ <span data-i18n="settings">Settings</span>
 </button>
 
@@ -763,7 +766,8 @@ onclick="toggleTheme()">
 <textarea
 id="postInput"
 data-placeholder="postPlaceholder"
-placeholder="What are you creating?"></textarea>
+placeholder="What are you creating?">
+</textarea>
 
 <div class="create-post-bottom">
 
@@ -840,9 +844,6 @@ style="width:100%;padding:10px;background:#0d0d19;color:white;border:1px solid #
 
 </div>
 
-<!-- =========================
-     SETTINGS
-========================= -->
 
 <div class="modal" id="settingsModal">
 
@@ -868,7 +869,8 @@ Username
 
 <input
 class="settings-input"
-id="settingsUsername">
+id="settingsUsername"
+maxlength="30">
 
 <label data-i18n="bio">
 Bio
@@ -906,6 +908,7 @@ Log out
 </div>
 
 </div>
+
 
 <script>
 
@@ -959,10 +962,13 @@ pl: {
     profilePicture:"Zdjęcie profilowe",
     save:"Zapisz zmiany",
     logout:"Wyloguj",
-    accountCreated:"Konto utworzone. Sprawdź e-mail, jeśli wymagana jest weryfikacja.",
+    accountCreated:"Konto utworzone. Sprawdź skrzynkę e-mail i kliknij link potwierdzający, aby aktywować konto.",
+    emailNotVerified:"Ten adres e-mail nie został jeszcze potwierdzony. Sprawdź swoją skrzynkę.",
     postError:"Nie udało się opublikować posta.",
     emptyPost:"Napisz coś przed opublikowaniem.",
-    profileSaved:"Profil został zapisany."
+    profileSaved:"Profil został zapisany.",
+    avatarError:"Nie udało się przesłać avatara.",
+    profileError:"Nie udało się utworzyć profilu."
 },
 
 en: {
@@ -992,10 +998,13 @@ en: {
     profilePicture:"Profile picture",
     save:"Save changes",
     logout:"Log out",
-    accountCreated:"Account created. Check your email if confirmation is required.",
+    accountCreated:"Account created. Check your email and click the confirmation link to activate your account.",
+    emailNotVerified:"This email address has not been confirmed yet. Check your inbox.",
     postError:"Could not publish the post.",
     emptyPost:"Write something before posting.",
-    profileSaved:"Profile saved."
+    profileSaved:"Profile saved.",
+    avatarError:"Could not upload the avatar.",
+    profileError:"Could not create your profile."
 },
 
 de: {
@@ -1025,10 +1034,13 @@ de: {
     profilePicture:"Profilbild",
     save:"Änderungen speichern",
     logout:"Abmelden",
-    accountCreated:"Konto erstellt. Überprüfe deine E-Mail, falls eine Bestätigung erforderlich ist.",
+    accountCreated:"Konto erstellt. Überprüfe deine E-Mail und klicke auf den Bestätigungslink.",
+    emailNotVerified:"Diese E-Mail-Adresse wurde noch nicht bestätigt.",
     postError:"Post konnte nicht veröffentlicht werden.",
     emptyPost:"Schreibe etwas, bevor du postest.",
-    profileSaved:"Profil gespeichert."
+    profileSaved:"Profil gespeichert.",
+    avatarError:"Avatar konnte nicht hochgeladen werden.",
+    profileError:"Profil konnte nicht erstellt werden."
 },
 
 es: {
@@ -1058,10 +1070,13 @@ es: {
     profilePicture:"Foto de perfil",
     save:"Guardar cambios",
     logout:"Cerrar sesión",
-    accountCreated:"Cuenta creada. Revisa tu correo si se requiere confirmación.",
+    accountCreated:"Cuenta creada. Revisa tu correo y haz clic en el enlace de confirmación.",
+    emailNotVerified:"Este correo electrónico todavía no ha sido confirmado.",
     postError:"No se pudo publicar.",
     emptyPost:"Escribe algo antes de publicar.",
-    profileSaved:"Perfil guardado."
+    profileSaved:"Perfil guardado.",
+    avatarError:"No se pudo subir el avatar.",
+    profileError:"No se pudo crear el perfil."
 },
 
 fr: {
@@ -1091,10 +1106,13 @@ fr: {
     profilePicture:"Photo de profil",
     save:"Enregistrer",
     logout:"Se déconnecter",
-    accountCreated:"Compte créé. Vérifie ton e-mail si une confirmation est nécessaire.",
+    accountCreated:"Compte créé. Vérifie ton e-mail et clique sur le lien de confirmation.",
+    emailNotVerified:"Cette adresse e-mail n'a pas encore été confirmée.",
     postError:"Impossible de publier.",
     emptyPost:"Écris quelque chose avant de publier.",
-    profileSaved:"Profil enregistré."
+    profileSaved:"Profil enregistré.",
+    avatarError:"Impossible de télécharger l'avatar.",
+    profileError:"Impossible de créer le profil."
 }
 
 };
@@ -1107,15 +1125,13 @@ fr: {
 let currentLanguage =
 localStorage.getItem("magnetar-language") || "pl";
 
-
 function t(key) {
 
-    return translations[currentLanguage][key]
+    return translations[currentLanguage]?.[key]
         || translations.en[key]
         || key;
 
 }
-
 
 function changeLanguage(language) {
 
@@ -1133,6 +1149,10 @@ function changeLanguage(language) {
 
 }
 
+
+/* ==================================================
+   LANGUAGE UI
+================================================== */
 
 function applyLanguage() {
 
@@ -1202,12 +1222,11 @@ function applyLanguage() {
 
 }
 
-
 applyLanguage();
 
 
 /* ==================================================
-   AUTH SCREENS
+   AUTH UI
 ================================================== */
 
 function showSignup() {
@@ -1220,7 +1239,6 @@ function showSignup() {
 
 }
 
-
 function showLogin() {
 
     document.getElementById("signupCard").style.display =
@@ -1231,19 +1249,34 @@ function showLogin() {
 
 }
 
-
 function showMessage(id,text,type) {
 
     const element =
         document.getElementById(id);
 
-    element.textContent = text;
+    element.textContent =
+        text;
 
     element.className =
         "message " + type;
 
     element.style.display =
         "block";
+
+}
+
+
+/* ==================================================
+   EMAIL VERIFICATION CHECK
+================================================== */
+
+function isEmailVerified(user) {
+
+    return Boolean(
+        user &&
+        user.email_confirmed_at
+    );
+
 }
 
 
@@ -1259,7 +1292,8 @@ async function signUp() {
 
     const email =
         document.getElementById("signupEmail")
-        .value.trim();
+        .value.trim()
+        .toLowerCase();
 
     const password =
         document.getElementById("signupPassword")
@@ -1270,6 +1304,17 @@ async function signUp() {
         showMessage(
             "signupMessage",
             "Fill in all fields.",
+            "error"
+        );
+
+        return;
+    }
+
+    if (username.length < 3) {
+
+        showMessage(
+            "signupMessage",
+            "Username must contain at least 3 characters.",
             "error"
         );
 
@@ -1298,9 +1343,11 @@ async function signUp() {
         password: password,
 
         options: {
+
             data: {
                 username: username
             }
+
         }
 
     });
@@ -1316,44 +1363,52 @@ async function signUp() {
         return;
     }
 
-    if (!data.user) {
+    /*
+       Nawet jeśli Supabase zwróci session,
+       nie wpuszczamy użytkownika, dopóki
+       email nie jest potwierdzony.
+    */
 
-        showMessage(
-            "signupMessage",
-            "Could not create account.",
-            "error"
+    if (
+        data.user &&
+        isEmailVerified(data.user)
+    ) {
+
+        const profileOk =
+            await createProfile(
+                data.user,
+                username
+            );
+
+        if (!profileOk) {
+
+            showMessage(
+                "signupMessage",
+                t("profileError"),
+                "error"
+            );
+
+            return;
+        }
+
+        await openVerifiedApp(
+            data.user
         );
 
         return;
     }
 
     /*
-       Jeżeli Supabase wymaga potwierdzenia e-mail,
-       sesja może być pusta.
+       Standardowa ścieżka:
+       konto utworzone,
+       teraz trzeba kliknąć link w e-mailu.
     */
 
-    if (data.session) {
-
-        await createProfile(
-            data.user,
-            username
-        );
-
-        openApp();
-
-        await loadCurrentUser();
-
-        await loadPosts();
-
-    } else {
-
-        showMessage(
-            "signupMessage",
-            t("accountCreated"),
-            "success"
-        );
-
-    }
+    showMessage(
+        "signupMessage",
+        t("accountCreated"),
+        "success"
+    );
 
 }
 
@@ -1362,9 +1417,14 @@ async function signUp() {
    CREATE PROFILE
 ================================================== */
 
-async function createProfile(user,username) {
+async function createProfile(user, username) {
+
+    if (!user) {
+        return false;
+    }
 
     const {
+        data,
         error
     } =
     await supabaseClient
@@ -1377,7 +1437,13 @@ async function createProfile(user,username) {
 
             language: currentLanguage
 
-        });
+        }, {
+
+            onConflict: "id"
+
+        })
+        .select()
+        .single();
 
     if (error) {
 
@@ -1386,7 +1452,13 @@ async function createProfile(user,username) {
             error
         );
 
+        return false;
     }
+
+    currentProfile =
+        data;
+
+    return true;
 
 }
 
@@ -1399,7 +1471,8 @@ async function login() {
 
     const email =
         document.getElementById("loginEmail")
-        .value.trim();
+        .value.trim()
+        .toLowerCase();
 
     const password =
         document.getElementById("loginPassword")
@@ -1440,7 +1513,141 @@ async function login() {
         return;
     }
 
-    await ensureProfile(data.user);
+    /*
+       Dodatkowe zabezpieczenie.
+       Nawet jeśli sesja istnieje,
+       sprawdzamy potwierdzenie e-maila.
+    */
+
+    if (!isEmailVerified(data.user)) {
+
+        await supabaseClient.auth.signOut();
+
+        showMessage(
+            "loginMessage",
+            t("emailNotVerified"),
+            "error"
+        );
+
+        return;
+    }
+
+    const profileOk =
+        await ensureProfile(data.user);
+
+    if (!profileOk) {
+
+        showMessage(
+            "loginMessage",
+            t("profileError"),
+            "error"
+        );
+
+        await supabaseClient.auth.signOut();
+
+        return;
+    }
+
+    await openVerifiedApp(
+        data.user
+    );
+
+}
+
+
+/* ==================================================
+   ENSURE PROFILE
+================================================== */
+
+async function ensureProfile(user) {
+
+    if (!user) {
+        return false;
+    }
+
+    if (!isEmailVerified(user)) {
+        return false;
+    }
+
+    const {
+        data: profile,
+        error
+    } =
+    await supabaseClient
+        .from("profiles")
+        .select("*")
+        .eq("id", user.id)
+        .maybeSingle();
+
+    if (error) {
+
+        console.error(
+            "Profile lookup error:",
+            error
+        );
+
+        return false;
+    }
+
+    if (profile) {
+
+        currentProfile =
+            profile;
+
+        return true;
+    }
+
+    const username =
+        user.user_metadata?.username
+        || user.email.split("@")[0];
+
+    return await createProfile(
+        user,
+        username
+    );
+
+}
+
+
+/* ==================================================
+   OPEN VERIFIED APP
+================================================== */
+
+async function openVerifiedApp(user) {
+
+    if (!isEmailVerified(user)) {
+
+        await supabaseClient.auth.signOut();
+
+        return;
+    }
+
+    currentUser =
+        user;
+
+    const profileOk =
+        await ensureProfile(user);
+
+    if (!profileOk) {
+
+        await supabaseClient.auth.signOut();
+
+        document.getElementById("app").style.display =
+            "none";
+
+        document.getElementById("authScreen").style.display =
+            "flex";
+
+        showLogin();
+
+        showMessage(
+            "loginMessage",
+            t("profileError"),
+            "error"
+        );
+
+        return;
+    }
 
     openApp();
 
@@ -1452,43 +1659,17 @@ async function login() {
 
 
 /* ==================================================
-   ENSURE PROFILE
-================================================== */
-
-async function ensureProfile(user) {
-
-    const {
-        data: profile
-    } =
-    await supabaseClient
-        .from("profiles")
-        .select("*")
-        .eq("id",user.id)
-        .maybeSingle();
-
-    if (!profile) {
-
-        const username =
-            user.user_metadata?.username
-            || user.email.split("@")[0];
-
-        await createProfile(
-            user,
-            username
-        );
-
-    }
-
-}
-
-
-/* ==================================================
    LOGOUT
 ================================================== */
 
 async function logout() {
 
     await supabaseClient.auth.signOut();
+
+    currentUser = null;
+    currentProfile = null;
+
+    document.getElementById("feed").innerHTML = "";
 
     closeSettings();
 
@@ -1529,19 +1710,22 @@ let currentProfile = null;
 async function loadCurrentUser() {
 
     const {
-        data
+        data,
+        error
     } =
     await supabaseClient.auth.getUser();
+
+    if (error || !data.user) {
+
+        return false;
+    }
 
     currentUser =
         data.user;
 
-    if (!currentUser) {
-        return;
-    }
-
     const {
-        data: profile
+        data: profile,
+        error: profileError
     } =
     await supabaseClient
         .from("profiles")
@@ -1549,20 +1733,21 @@ async function loadCurrentUser() {
         .eq("id",currentUser.id)
         .maybeSingle();
 
+    if (profileError || !profile) {
+
+        return false;
+    }
+
     currentProfile =
         profile;
 
-    if (!profile) {
-        return;
-    }
-
     document.getElementById("currentUsername")
         .textContent =
-        profile.username;
+        profile.username || "User";
 
     document.getElementById("currentEmail")
         .textContent =
-        currentUser.email;
+        currentUser.email || "";
 
     document.getElementById("settingsUsername")
         .value =
@@ -1572,18 +1757,45 @@ async function loadCurrentUser() {
         .value =
         profile.bio || "";
 
-    if (profile.avatar_url) {
+    renderCurrentAvatar(
+        profile.avatar_url,
+        profile.username
+    );
 
-        document.getElementById("currentAvatar")
-            .innerHTML =
-            `<img src="${escapeAttribute(profile.avatar_url)}">`;
+    return true;
+
+}
+
+
+/* ==================================================
+   CURRENT AVATAR
+================================================== */
+
+function renderCurrentAvatar(url, username) {
+
+    const avatar =
+        document.getElementById("currentAvatar");
+
+    avatar.innerHTML = "";
+
+    if (url) {
+
+        const img =
+            document.createElement("img");
+
+        img.src =
+            url;
+
+        img.alt =
+            "Avatar";
+
+        avatar.appendChild(img);
 
     } else {
 
-        document.getElementById("currentAvatar")
-            .textContent =
-            profile.username
-                ? profile.username[0].toUpperCase()
+        avatar.textContent =
+            username
+                ? username[0].toUpperCase()
                 : "✦";
 
     }
@@ -1613,7 +1825,7 @@ async function loadPosts() {
                 avatar_url
             )
         `)
-        .order("created_at",{
+        .order("created_at", {
             ascending:false
         });
 
@@ -1632,6 +1844,11 @@ async function loadPosts() {
 
     feed.innerHTML = "";
 
+    if (!data || data.length === 0) {
+
+        return;
+    }
+
     data.forEach(post => {
 
         renderPost(
@@ -1648,27 +1865,31 @@ async function loadPosts() {
    RENDER POST
 ================================================== */
 
-function renderPost(post,feed) {
+function renderPost(post, feed) {
+
+    const profile =
+        post.profiles;
 
     const username =
-        post.profiles?.username
+        profile?.username
         || "User";
 
     const avatar =
-        post.profiles?.avatar_url;
+        profile?.avatar_url;
 
     const article =
-        document.createElement("div");
+        document.createElement("article");
 
     article.className =
         "post";
 
     const avatarHTML =
         avatar
-        ? `<img src="${escapeAttribute(avatar)}">`
+        ? `<img src="${escapeAttribute(avatar)}" alt="Avatar">`
         : escapeHtml(
-            username[0]?.toUpperCase() || "✦"
-          );
+            username[0]?.toUpperCase()
+            || "✦"
+        );
 
     article.innerHTML = `
 
@@ -1698,15 +1919,15 @@ function renderPost(post,feed) {
 
         <div class="post-actions">
 
-            <button>
+            <button type="button">
                 ♡ Like
             </button>
 
-            <button>
+            <button type="button">
                 💬 Comment
             </button>
 
-            <button>
+            <button type="button">
                 ↗ Share
             </button>
 
@@ -1725,6 +1946,18 @@ function renderPost(post,feed) {
 
 async function createPost() {
 
+    if (!currentUser) {
+
+        return;
+    }
+
+    if (!isEmailVerified(currentUser)) {
+
+        await logout();
+
+        return;
+    }
+
     const input =
         document.getElementById("postInput");
 
@@ -1738,7 +1971,9 @@ async function createPost() {
         return;
     }
 
-    if (!currentUser) {
+    if (content.length > 5000) {
+
+        alert("Post is too long.");
 
         return;
     }
@@ -1770,7 +2005,10 @@ async function createPost() {
 
     if (error) {
 
-        console.error(error);
+        console.error(
+            "Post creation error:",
+            error
+        );
 
         alert(
             t("postError")
@@ -1786,29 +2024,39 @@ async function createPost() {
     const feed =
         document.getElementById("feed");
 
+    const articleContainer =
+        document.createElement("div");
+
     renderPost(
         data,
-        feed
+        articleContainer
     );
 
-    /*
-       przenosimy nowy post na górę
-    */
+    if (articleContainer.firstElementChild) {
 
-    feed.prepend(
-        feed.lastElementChild
-    );
+        feed.prepend(
+            articleContainer.firstElementChild
+        );
+
+    }
 
 }
 
 
 /* ==================================================
-   PROFILE + AVATAR
+   SAVE PROFILE + AVATAR
 ================================================== */
 
 async function saveProfile() {
 
     if (!currentUser) {
+        return;
+    }
+
+    if (!isEmailVerified(currentUser)) {
+
+        alert(t("emailNotVerified"));
+
         return;
     }
 
@@ -1820,7 +2068,17 @@ async function saveProfile() {
         document.getElementById("settingsBio")
         .value.trim();
 
-    if (!username) {
+    if (username.length < 3) {
+
+        alert("Username must contain at least 3 characters.");
+
+        return;
+    }
+
+    if (username.length > 30) {
+
+        alert("Username is too long.");
+
         return;
     }
 
@@ -1831,21 +2089,55 @@ async function saveProfile() {
         document.getElementById("avatarInput")
         .files[0];
 
+    /*
+       AVATAR
+    */
+
     if (file) {
+
+        const allowedTypes = [
+            "image/png",
+            "image/jpeg",
+            "image/webp"
+        ];
+
+        if (!allowedTypes.includes(file.type)) {
+
+            alert(
+                "Use PNG, JPG or WebP."
+            );
+
+            return;
+        }
 
         if (file.size > 5 * 1024 * 1024) {
 
-            alert("Maximum image size is 5 MB.");
+            alert(
+                "Maximum image size is 5 MB."
+            );
 
             return;
         }
 
         const extension =
-            file.name.split(".").pop();
+            file.type === "image/png"
+                ? "png"
+                : file.type === "image/webp"
+                    ? "webp"
+                    : "jpg";
+
+        /*
+           Każdy upload ma unikalną nazwę.
+           Nie używamy upsert.
+        */
 
         const filePath =
             currentUser.id
-            + "/avatar."
+            + "/"
+            + Date.now()
+            + "-"
+            + crypto.randomUUID()
+            + "."
             + extension;
 
         const {
@@ -1858,15 +2150,22 @@ async function saveProfile() {
                 filePath,
                 file,
                 {
-                    upsert:true,
-                    contentType:file.type
+                    cacheControl:"3600",
+                    contentType:file.type,
+                    upsert:false
                 }
             );
 
         if (uploadError) {
 
+            console.error(
+                "Avatar upload error:",
+                uploadError
+            );
+
             alert(
-                "Avatar upload failed:\n"
+                t("avatarError")
+                + "\n\n"
                 + uploadError.message
             );
 
@@ -1882,41 +2181,60 @@ async function saveProfile() {
             .getPublicUrl(filePath);
 
         avatarUrl =
-            publicData.publicUrl
-            + "?v="
-            + Date.now();
+            publicData.publicUrl;
 
     }
 
+
+    /*
+       PROFILE UPDATE
+    */
+
     const {
+        data: updatedProfile,
         error
     } =
     await supabaseClient
         .from("profiles")
         .update({
 
-            username:username,
+            username: username,
 
-            bio:bio,
+            bio: bio,
 
-            avatar_url:avatarUrl
+            avatar_url: avatarUrl,
+
+            language: currentLanguage
 
         })
-        .eq("id",currentUser.id);
+        .eq("id", currentUser.id)
+        .select()
+        .single();
 
     if (error) {
 
+        console.error(
+            "Profile update error:",
+            error
+        );
+
         alert(
-            "Could not save profile:\n"
+            "Could not save profile:\n\n"
             + error.message
         );
 
         return;
     }
 
+    currentProfile =
+        updatedProfile;
+
     await loadCurrentUser();
 
     await loadPosts();
+
+    document.getElementById("avatarInput")
+        .value = "";
 
     alert(t("profileSaved"));
 
@@ -1937,7 +2255,6 @@ function openSettings() {
 
 }
 
-
 function closeSettings() {
 
     document.getElementById("settingsModal")
@@ -1945,7 +2262,6 @@ function closeSettings() {
         "none";
 
 }
-
 
 function openProfile() {
 
@@ -1984,18 +2300,18 @@ function escapeHtml(text) {
         document.createElement("div");
 
     div.textContent =
-        text;
+        text ?? "";
 
     return div.innerHTML;
 
 }
-
 
 function escapeAttribute(text) {
 
     return String(text)
         .replace(/&/g,"&amp;")
         .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#39;")
         .replace(/</g,"&lt;")
         .replace(/>/g,"&gt;");
 
@@ -2046,23 +2362,45 @@ function toggleTheme() {
 async function checkSession() {
 
     const {
-        data
+        data,
+        error
     } =
     await supabaseClient.auth.getSession();
 
-    if (data.session) {
+    if (error) {
 
-        await ensureProfile(
-            data.session.user
+        console.error(
+            "Session error:",
+            error
         );
 
-        openApp();
-
-        await loadCurrentUser();
-
-        await loadPosts();
-
+        return;
     }
+
+    const session =
+        data.session;
+
+    if (!session) {
+
+        return;
+    }
+
+    /*
+       Bardzo ważne:
+       sama sesja NIE oznacza,
+       że email jest potwierdzony.
+    */
+
+    if (!isEmailVerified(session.user)) {
+
+        await supabaseClient.auth.signOut();
+
+        return;
+    }
+
+    await openVerifiedApp(
+        session.user
+    );
 
 }
 
@@ -2072,22 +2410,39 @@ async function checkSession() {
 ================================================== */
 
 supabaseClient.auth.onAuthStateChange(
-    async (event,session) => {
+    async (event, session) => {
 
         if (
-            event === "SIGNED_IN"
+            (
+                event === "SIGNED_IN"
+                || event === "INITIAL_SESSION"
+            )
             && session
         ) {
 
-            await ensureProfile(
-                session.user
-            );
+            /*
+               Nie wpuszczamy nieweryfikowanych.
+            */
 
-            openApp();
+            if (!isEmailVerified(session.user)) {
 
-            await loadCurrentUser();
+                await supabaseClient.auth.signOut();
 
-            await loadPosts();
+                return;
+            }
+
+            /*
+               Odkładamy operacje na chwilę,
+               żeby uniknąć konfliktów z Auth event.
+            */
+
+            setTimeout(async () => {
+
+                await openVerifiedApp(
+                    session.user
+                );
+
+            }, 0);
 
         }
 
